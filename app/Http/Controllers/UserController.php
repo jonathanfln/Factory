@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\StoreUserCreate;
+use App\Http\Requests\StoreUserEdit;
 
 class UserController extends Controller
 {
@@ -38,9 +39,17 @@ class UserController extends Controller
     public function store(StoreUserCreate $request)
     {
         $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        if($request->name != $user->name)
+        {
+            $user->name = $request->name;
+        }
+        if($request->email != $user->email)
+        {
+            $user->email = $request->email;
+        }
+        if($request->password != NULL){
+            $user->password = bcrypt($request->password);
+        }
         $user->save();
 
         return redirect()->route('users.index');
@@ -63,9 +72,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -75,9 +84,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreUserEdit $request, User $user)
     {
-        //
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 
     /**
