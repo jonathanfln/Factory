@@ -15,13 +15,22 @@
     <div class="row">
       @foreach($users as $user)
       <div class="col-sm-4 col-md-3">
-        <a href="">
-          <div class="box">
-            <div class="box-body">
-              <h2 class="text-center text-muted">{{$user->name}}</h2>
+        <div class="box">
+          <div class="box-body">
+            <h2 class="text-center">{{$user->name}}</h2>
+            <p class="text-center">{{$user->email}}</p>
+          </div>
+          <div class="box-body">
+            <div class="text-center">
+              <a href="{{route('users.edit', ['user'=>$user->id])}}" class="btn btn-info">Éditer</a>
+              <form action="{{route('users.destroy', ['user'=>$user->id])}}" method="post" class="visible-lg-inline-block">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">Supprimer</button>
+              </form>
             </div>
           </div>
-        </a>
+        </div>
       </div>
       @endforeach
     </div>
