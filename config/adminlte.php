@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        /* 'MAIN NAVIGATION',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
@@ -120,8 +120,33 @@ return [
             'icon'        => 'file',
             'label'       => 4,
             'label_color' => 'success',
+        ], */
+        [
+            'text'        => 'Utilisateurs',
+            'url'         => 'admin/users',
+            'icon'        => 'users',
         ],
-        'ACCOUNT SETTINGS',
+        [
+            'text'        => 'Catégories',
+            'url'         => 'admin/catgories',
+            'icon'        => 'reorder',
+        ],
+        [
+            'text'        => 'Tags',
+            'url'         => 'admin/tags',
+            'icon'        => 'tags',
+        ],
+        [
+            'text'        => 'skills',
+            'url'         => 'admin/tags',
+            'icon'        => 'map-signs',
+        ],
+        [
+            'text'        => 'Projets',
+            'url'         => 'admin/projects',
+            'icon'        => 'file',
+        ],
+/*         'ACCOUNT SETTINGS',
         [
             'text' => 'Profile',
             'url'  => 'admin/settings',
@@ -182,7 +207,7 @@ return [
         [
             'text'       => 'Information',
             'icon_color' => 'aqua',
-        ],
+        ], */
     ],
 
     /*
