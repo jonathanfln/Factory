@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateProjetsTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'users';
+    public $set_schema_table = 'projets';
 
     /**
      * Run the migrations.
-     * @table users
+     * @table projets
      *
      * @return void
      */
@@ -24,14 +24,20 @@ class CreateUsersTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('password');
-            $table->rememberToken();
+            $table->unsignedInteger('categories_id');
+            $table->string('name', 45);
+            $table->string('image', 45);
+            $table->text('content');
 
-            $table->unique(["email"], 'users_email_unique');
+            $table->index(["categories_id"], 'fk_projets_categories_idx');
             $table->softDeletes();
             $table->nullableTimestamps();
+
+
+            $table->foreign('categories_id', 'fk_projets_categories_idx')
+                ->references('id')->on('categories')
+                ->onDelete('no action')
+                ->onUpdate('no action');
         });
     }
 
