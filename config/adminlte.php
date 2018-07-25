@@ -122,11 +122,6 @@ return [
             'label_color' => 'success',
         ], */
         [
-            'text'        => 'Utilisateurs',
-            'url'         => 'admin/users',
-            'icon'        => 'users',
-        ],
-        [
             'text'        => 'Catégories',
             'url'         => 'admin/catgories',
             'icon'        => 'reorder',
@@ -142,9 +137,34 @@ return [
             'icon'        => 'map-signs',
         ],
         [
+            'text'        => 'Clients',
+            'url'         => 'admin/clients',
+            'icon'        => 'file',
+        ],
+        [
             'text'        => 'Projets',
             'url'         => 'admin/projects',
             'icon'        => 'file',
+        ],
+        [
+            'text'        => 'Testimonials',
+            'url'         => 'admin/testimonials',
+            'icon'        => 'file',
+        ],
+        [
+            'text'        => 'Atouts',
+            'url'         => 'admin/atouts',
+            'icon'        => 'file',
+        ],
+        [
+            'text'        => 'Services',
+            'url'         => 'admin/services',
+            'icon'        => 'file',
+        ],
+        [
+            'text'        => 'Utilisateurs',
+            'url'         => 'admin/users',
+            'icon'        => 'users',
         ],
 /*         'ACCOUNT SETTINGS',
         [
