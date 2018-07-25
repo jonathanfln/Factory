@@ -24,10 +24,10 @@ class CreateTestimonialsTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->unsignedInteger('clients_id')->nullable();
             $table->string('project', 45);
             $table->string('content', 45);
             $table->string('link', 45)->nullable();
-            $table->unsignedInteger('clients_id');
 
             $table->index(["clients_id"], 'fk_testimonials_clients1_idx');
             $table->softDeletes();

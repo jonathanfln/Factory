@@ -24,11 +24,11 @@ class CreateProjetsTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('categories_id');
+            $table->unsignedInteger('categories_id')->nullable();
+            $table->unsignedInteger('clients_id')->nullable();
             $table->string('name', 45);
             $table->string('image', 45);
             $table->text('content');
-            $table->unsignedInteger('clients_id');
 
             $table->index(["clients_id"], 'fk_projets_clients1_idx');
 

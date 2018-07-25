@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Categorie;
+use App\Http\Requests\StoreCatCreate;
+use App\Http\Requests\StoreCatEdit;
 use Illuminate\Http\Request;
+use App\Categorie;
 
 class CategorieController extends Controller
 {
@@ -14,7 +16,8 @@ class CategorieController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Categorie::all();
+        return view('admin.categorie.index', compact('categories'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CategorieController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categorie.create');
     }
 
     /**
@@ -33,9 +36,12 @@ class CategorieController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCatCreate $request)
     {
-        //
+        $category = new Categorie;
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -55,9 +61,10 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categorie $categorie)
+    public function edit($id)
     {
-        //
+        $categorie = Categorie::find($id);
+        return view('admin.categorie.edit', compact('categorie'));
     }
 
     /**
@@ -67,9 +74,12 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categorie $categorie)
+    public function update(StoreCatEdit $request, $id)
     {
-        //
+        $categorie = Categorie::find($id);
+        $categorie->name = $request->name;
+        $categorie->save();
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -78,8 +88,10 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categorie $categorie)
+    public function destroy($id)
     {
-        //
+        $categorie = Categorie::find($id);
+        $categorie->delete();
+        return redirect()->back();
     }
 }
