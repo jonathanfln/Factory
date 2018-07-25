@@ -123,7 +123,7 @@ return [
         ], */
         [
             'text'        => 'Catégories',
-            'url'         => 'admin/catgories',
+            'url'         => 'admin/categories',
             'icon'        => 'reorder',
         ],
         [
@@ -132,7 +132,7 @@ return [
             'icon'        => 'tags',
         ],
         [
-            'text'        => 'skills',
+            'text'        => 'Skills',
             'url'         => 'admin/tags',
             'icon'        => 'map-signs',
         ],
