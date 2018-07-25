@@ -133,7 +133,7 @@ return [
         ],
         [
             'text'        => 'Skills',
-            'url'         => 'admin/tags',
+            'url'         => 'admin/skills',
             'icon'        => 'map-signs',
         ],
         [

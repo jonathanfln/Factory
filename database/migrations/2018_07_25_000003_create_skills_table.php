@@ -26,6 +26,10 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('name', 45);
             $table->string('logo', 45);
+
+            $table->unique(["name"], 'name_UNIQUE');
+
+            $table->unique(["logo"], 'logo_UNIQUE');
             $table->softDeletes();
             $table->nullableTimestamps();
         });
