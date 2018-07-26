@@ -24,7 +24,7 @@ class StoreTagEdit extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:45|unique:tags,name,'.$this->user->id,
+            'name' => 'required|max:45|unique:tags,name,'.$this->tag->id,
         ];
     }
 
@@ -36,7 +36,7 @@ class StoreTagEdit extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Nom de catégorie requis',
+            'name.required' => 'Nom de tag requis',
             'name.unique' => 'Ce tag existe déjà',
             'name.max' => 'Maximum :max caractères',
         ];

@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTagCreate extends FormRequest
+class StoreSkillEdit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class StoreTagCreate extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:45|unique:tags,name',
+            'name' => 'required|max:45|unique:skills,name,'.$this->skill->id,
+            'logo' => 'required|max:45|unique:skills,logo,'.$this->skill->id,
         ];
     }
 
@@ -36,9 +37,12 @@ class StoreTagCreate extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Nom de tag requis',
+            'name.required' => 'Nom de catégorie requis',
             'name.unique' => 'Ce tag existe déjà',
             'name.max' => 'Maximum :max caractères',
+            'logo.required' => 'Logo requis',
+            'logo.unique' => 'Ce logo existe déjà',
+            'logo.max' => 'Maximum :max caractères',
         ];
     }
 }

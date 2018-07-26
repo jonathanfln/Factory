@@ -24,7 +24,7 @@ class StoreCatEdit extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:45|unique:categories,name,'.$this->user->id,
+            'name' => 'required|max:45|unique:categories,name,'.$this->categorie->id,
         ];
     }
 

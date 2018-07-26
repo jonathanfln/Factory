@@ -14,7 +14,7 @@
 				<div class="form-group">
 					<label for="name"><h3>Nom</h3></label>
 					@if($errors->has('name'))
-            <div class="text-danger">{{$errors->first('name')}}</>
+            <div class="text-danger">{{$errors->first('name')}}</div>
           @endif
 					<input type="text" name="name" id="name" class="form-control w-50 {{$errors->has('name')?'border-danger':''}}" placeholder="Veuillez entrer un tag" value="{{old('name')}}">
 				</div>

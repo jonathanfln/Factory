@@ -14,5 +14,9 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             'name' => 'Website',
         ]);
+
+        DB::table('categories')->insert([
+            'name' => 'Création graphique',
+        ]);
     }
 }

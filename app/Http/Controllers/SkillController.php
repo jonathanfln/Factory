@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Skill;
+use App\Http\Requests\StoreSkillCreate;
+use App\Http\Requests\StoreSkillEdit;
 use Illuminate\Http\Request;
+use App\Skill;
 
 class SkillController extends Controller
 {
@@ -14,7 +16,8 @@ class SkillController extends Controller
      */
     public function index()
     {
-        //
+        $skills = Skill::all();
+        return view('admin.skill.index', compact('skills'));
     }
 
     /**
@@ -24,7 +27,7 @@ class SkillController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.skill.create');
     }
 
     /**
@@ -33,9 +36,13 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSkillCreate $request)
     {
-        //
+        $skill = new Skill;
+        $skill->name = $request->name;
+        $skill->logo = $request->logo;
+        $skill->save();
+        return redirect()->route('skills.index');
     }
 
     /**
@@ -57,7 +64,7 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return view('admin.skill.edit', compact('skill'));
     }
 
     /**
@@ -67,9 +74,12 @@ class SkillController extends Controller
      * @param  \App\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $skill)
+    public function update(StoreSkillEdit $request, Skill $skill)
     {
-        //
+        $skill->name = $request->name;
+        $skill->logo = $request->logo;
+        $skill->save();
+        return redirect()->route('skills.index');
     }
 
     /**
@@ -80,6 +90,8 @@ class SkillController extends Controller
      */
     public function destroy(Skill $skill)
     {
-        //
+        $skill->delete();
+        
+        return redirect()->route('skills.index');
     }
 }
