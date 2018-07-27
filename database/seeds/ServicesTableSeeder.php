@@ -12,14 +12,17 @@ class ServicesTableSeeder extends Seeder
     public function run()
     {
         DB::table('services')->insert([
+            'logo' => 'test',
             'name' => 'Developpement web',
         ]);
         
         DB::table('services')->insert([
+            'logo' => 'test',
             'name' => 'Création graphique',
         ]);
 
         DB::table('services')->insert([
+            'logo' => 'test',
             'name' => 'E-marketing',
         ]);
     }

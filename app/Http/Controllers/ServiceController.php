@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Service;
+use App\Http\Requests\StoreServCreate;
+use App\Http\Requests\StoreServEdit;
 use Illuminate\Http\Request;
+use App\Service;
 
 class ServiceController extends Controller
 {
@@ -14,7 +16,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('admin.service.index', compact('services'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.service.create');
     }
 
     /**
@@ -33,9 +36,15 @@ class ServiceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreServCreate $request)
     {
-        //
+        $service = New Service;
+        $service->name = $request->name;
+        $service->logo = $request->logo;
+        $service->description = $request->description;
+        $service->save();
+        
+        return redirect()->route('services.index');
     }
 
     /**
@@ -46,7 +55,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+        return view('admin.service.show', compact('service'));
     }
 
     /**
@@ -57,7 +66,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('admin.service.edit', compact('service'));
     }
 
     /**
@@ -67,9 +76,14 @@ class ServiceController extends Controller
      * @param  \App\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(StoreServEdit $request, Service $service)
     {
-        //
+        $service->name = $request->name;
+        $service->logo = $request->logo;
+        $service->description = $request->description;
+        $service->save();
+        
+        return redirect()->route('services.index');
     }
 
     /**
@@ -80,6 +94,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        $service->delete();
+
+        return redirect()->route('services.index');
     }
 }

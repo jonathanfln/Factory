@@ -24,7 +24,9 @@ class CreateServicesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('logo', 45);
             $table->string('name', 45);
+            $table->string('description', 100)->nullable();
             $table->softDeletes();
             $table->nullableTimestamps();
         });

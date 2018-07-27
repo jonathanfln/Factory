@@ -16,7 +16,7 @@
 					@if($errors->has('name'))
             <div class="text-danger">{{$errors->first('name')}}</>
           @endif
-					<input type="text" name="name" id="name" class="form-control w-50 {{$errors->has('name')?'bg-danger':''}}" placeholder="Veuillez entrer un nom de catégorie" value="{{old('name')}}">
+					<input type="text" name="name" id="name" class="form-control {{$errors->has('name')?'bg-danger':''}}" placeholder="Veuillez entrer un nom de catégorie" value="{{old('name')}}">
 				</div>
 			</div>
 			<div class="box-body">

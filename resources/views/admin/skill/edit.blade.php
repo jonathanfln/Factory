@@ -25,7 +25,7 @@
 					<div class="col-md-6">
 						<div class="form-group">
 							<label for="logo"><h3>Logo</h3></label>
-							<small>Logo trouvable a cette adresse : <a target="_blank" href="https://fontawesome.com/icons?d=gallery&s=brands&m=free">fontawesome.com</a></small>
+							<small>Logo trouvable a cette <a target="_blank" href="https://fontawesome.com/icons?d=gallery&s=brands&m=free">adresse</a></small>
 							@if($errors->has('logo'))
 								<div class="text-danger">{{$errors->first('logo')}}</div>
 							@endif
