@@ -901,25 +901,25 @@
               <div class="widget widget-links">
                 <h5 class="widget-title">Contact Us</h5>
                 <div class="widget-links">
-                    <form name="contact-form" id="contact-form-03" action="php/contact.php" method="POST" class="mt-50">
-            <div class="messages"></div>
-              <div class="form-group wow fadeInUp" data-wow-delay="0.1s">
-                <label class="sr-only" for="name">Name</label>
-                <input type="text" name="name" class="md-input style-02" id="name3" required placeholder="Name *" data-error="Your Name is Required">
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="form-group wow fadeInUp" data-wow-delay="0.2s">
-                <label class="sr-only" for="email">Email</label>
-                <input type="email" name="email" class="md-input style-02" id="email3" placeholder="Email*" required data-error="Please Enter Valid Email">
-                <div class="help-block with-errors"></div>
-              </div>
-              <div class="form-group wow fadeInUp" data-wow-delay="0.3s">
-                <label class="sr-only" for="message">Message</label>
-                <textarea name="message" class="md-textarea style-02" id="message3" rows="7" placeholder="Message*" required data-error="Please, Leave us a message"></textarea>
-                <div class="help-block with-errors"></div>
-              </div>
-              <button type="submit" name="submit" class="btn btn-color btn-md remove-margin btn-square wow fadeInUp" data-wow-delay="0.4s">Send Message</button>
-            </form>
+                  <form name="contact-form" id="contact-form-03" action="php/contact.php" method="POST" class="mt-50">
+                    <div class="messages"></div>
+                    <div class="form-group wow fadeInUp" data-wow-delay="0.1s">
+                      <label class="sr-only" for="name">Name</label>
+                      <input type="text" name="name" class="md-input style-02" id="name3" required placeholder="Name *" data-error="Your Name is Required">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group wow fadeInUp" data-wow-delay="0.2s">
+                      <label class="sr-only" for="email">Email</label>
+                      <input type="email" name="email" class="md-input style-02" id="email3" placeholder="Email*" required data-error="Please Enter Valid Email">
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <div class="form-group wow fadeInUp" data-wow-delay="0.3s">
+                      <label class="sr-only" for="message">Message</label>
+                      <textarea name="message" class="md-textarea style-02" id="message3" rows="7" placeholder="Message*" required data-error="Please, Leave us a message"></textarea>
+                      <div class="help-block with-errors"></div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-color btn-md remove-margin btn-square wow fadeInUp" data-wow-delay="0.4s">Send Message</button>
+                  </form>
                 </div>
               </div>
             </div>

@@ -36,3 +36,5 @@ Route::resource('/admin/testimonials','TestimonialController');
 Route::resource('/admin/atouts','AtoutController');
 
 Route::resource('/admin/services','ServiceController');
+
+Route::resource('/admin/partenaires','PartenaireController');

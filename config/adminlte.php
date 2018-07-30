@@ -162,6 +162,11 @@ return [
             'icon'        => 'file',
         ],
         [
+            'text'        => 'Partenaires',
+            'url'         => 'admin/partenaires',
+            'icon'        => 'file',
+        ],
+        [
             'text'        => 'Utilisateurs',
             'url'         => 'admin/users',
             'icon'        => 'users',

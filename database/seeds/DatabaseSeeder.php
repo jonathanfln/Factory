@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             AtoutsTableSeeder::class,
             ServicesTableSeeder::class,
             CategoriesTableSeeder::class,
+            PartenairesTableSeeder::class,
             ]);
         
     }
