@@ -29,7 +29,7 @@ Route::resource('/admin/skills','SkillController');
 
 Route::resource('/admin/clients','ClientController');
 
-Route::resource('/admin/projets','ProjetController');
+Route::resource('/admin/projects','ProjetController');
 
 Route::resource('/admin/testimonials','TestimonialController');
 

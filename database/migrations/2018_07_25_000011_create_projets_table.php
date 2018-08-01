@@ -29,6 +29,7 @@ class CreateProjetsTable extends Migration
             $table->string('name', 45);
             $table->string('image', 45);
             $table->text('content');
+            $table->string('link', 45)->nullable();
 
             $table->index(["clients_id"], 'fk_projets_clients1_idx');
 

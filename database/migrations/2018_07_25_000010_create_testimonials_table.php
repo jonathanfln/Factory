@@ -25,9 +25,7 @@ class CreateTestimonialsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('clients_id')->nullable();
-            $table->string('project', 45);
-            $table->string('content', 45);
-            $table->string('link', 45)->nullable();
+            $table->string('content');
 
             $table->index(["clients_id"], 'fk_testimonials_clients1_idx');
             $table->softDeletes();

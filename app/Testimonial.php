@@ -11,6 +11,6 @@ class Testimonial extends Model
 
     public function client()
     {
-        return $this->hasMany('App\Client', 'clients_id', 'id');
+        return $this->belongsTo('App\Client', 'clients_id', 'id');
     }
 }
