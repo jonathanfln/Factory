@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Atout;
+use App\Http\Requests\StoreAtoutCreate;
+use App\Http\Requests\StoreAtoutEdit;
 use Illuminate\Http\Request;
+use App\Atout;
 
 class AtoutController extends Controller
 {
@@ -14,7 +16,9 @@ class AtoutController extends Controller
      */
     public function index()
     {
-        //
+        $atouts = Atout::all();
+
+        return view('admin.atout.index', compact('atouts'));
     }
 
     /**
@@ -24,7 +28,7 @@ class AtoutController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.atout.create');
     }
 
     /**
@@ -33,9 +37,14 @@ class AtoutController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAtoutCreate $request)
     {
-        //
+        $atout = New Atout;
+        $atout->name = $request->name;
+        $atout->content = $request->content;
+        $atout->save();
+        
+        return redirect()->route('atouts.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class AtoutController extends Controller
      */
     public function edit(Atout $atout)
     {
-        //
+        return view('admin.atout.edit', compact('atout'));
     }
 
     /**
@@ -67,9 +76,14 @@ class AtoutController extends Controller
      * @param  \App\Atout  $atout
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Atout $atout)
+    public function update(StoreAtoutEdit $request, Atout $atout)
     {
-        //
+        $atout->name = $request->name;
+        $atout->content = $request->content;
+        // dd($ato  ut);
+        $atout->save();
+        
+        return redirect()->route('atouts.index');
     }
 
     /**
@@ -80,6 +94,8 @@ class AtoutController extends Controller
      */
     public function destroy(Atout $atout)
     {
-        //
+        $atout->delete();
+
+        return redirect()->route('atouts.index');
     }
 }
