@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             SkillsTableSeeder::class,
             AtoutsTableSeeder::class,
+            ClientsTableSeeder::class,
             ServicesTableSeeder::class,
             CategoriesTableSeeder::class,
             PartenairesTableSeeder::class,
