@@ -30,7 +30,7 @@ class ClientsTableSeeder extends Seeder
                         
         Client::create( [
             'name'=>'Simon Gheux',
-            'company'=>'AESI',
+            'company'=>'EASI',
             'image'=>'VrbIK5TK78Es2UIDzWKj54rEZgJxq2Li56A8cGno.jpeg',
             'created_at'=>'2018-08-01 06:59:04',
             'updated_at'=>'2018-08-01 06:59:04'

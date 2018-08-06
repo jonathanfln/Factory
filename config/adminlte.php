@@ -143,7 +143,7 @@ return [
         ],
         [
             'text'        => 'Projets',
-            'url'         => 'admin/projects',
+            'url'         => 'admin/projets',
             'icon'        => 'file',
         ],
         [

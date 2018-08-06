@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'partenaire')
+@section('title', 'Partenaires')
 
 @section('content_header')
     <h1>Partenaire</h1>
@@ -14,7 +14,7 @@
 <div class="row">
   @foreach($partenaires as $partenaire)
   <div class="col-md-2">
-    <div class="box" style="width: 18rem;">
+    <div class="box">
       <img class="img-responsive" src="{{Storage::disk('imgPartenaire')->url($partenaire->image)}}" alt="{{$partenaire->name}}">
       <div class="box-body text-center">
         <h5>{{$partenaire->name}}</h5>

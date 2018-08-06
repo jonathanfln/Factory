@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', "Carousel")
+@section('title', "Partenaires")
 
 @section('content_header')
     <h1>Éditer une image du partenaire</h1>
