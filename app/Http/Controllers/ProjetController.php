@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProjCreate;
 use App\Http\Requests\StoreProjEdit;
+use App\Services\ImageResize;
 use Illuminate\Http\Request;
 use App\Categorie;
 use App\Client;
@@ -18,7 +19,7 @@ class ProjetController extends Controller
 
     public function __construct(ImageResize $imageResize){
         
-        
+        $this->imageResize = $imageResize;
         
         $categories = Categorie::all();
         $clients = Client::all();
@@ -59,8 +60,9 @@ class ProjetController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreProjCreate $request)
+    public function store(Request $request)
     {
+        // dd($request);
         $projet = new Projet;
         $projet->name = $request->name;
         $projet->clients_id = $request->clients_id;
@@ -68,20 +70,9 @@ class ProjetController extends Controller
         // dd($projet->categories_id);
         $projet->content = $request->content;
         $projet->categories_id = $request->categories_id;
-        $projet->image = $request->image->store('','imgProjet');
-        // if($request->image != NULL)
-        // {
-        //     // $article->image = $request->image->store('', 'imgArticle');
-        //     $image = [
-        //         "name" => $request->image,
-        //         "disk" => 'imgArticle',
-        //         "w" => 755,
-        //         "h" => 270,
-        //     ];
-        //     $article->image = $this->imageResize->imageStore($image);
-        // }
+        $projet->image = $this->imageResize->imageStore($request->image);
+        // $projet->image = $request->image->store('', 'imgProjet');
 
-        
         if($projet->save())
         {
             foreach($request->tags_id as $tag)

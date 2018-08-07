@@ -28,9 +28,8 @@ class StoreProjCreate extends FormRequest
             'content' => 'required',
             'clients_id' => 'required|integer|exists:clients,id',
             'categories_id' => 'required|integer|exists:categories,id',
-            'tags_id' => 'required',
-            'tags_id' => 'required|integer|exists:tags,id',
-            'skills_id' => 'required|integer|exists:skills,id',
+            'tags_id' => 'required|exists:tags,id',
+            'skills_id' => 'required|exists:skills,id',
             'image' => 'required|max:20000000|image|dimensions:min_width=1000',
         ];
     }
@@ -50,19 +49,16 @@ class StoreProjCreate extends FormRequest
             'clients_id.integer' => "Ce n'est pas bien d'essayer de tricher",
             'clients_id.exists' => "Ce n'est pas bien d'essayer de tricher",
             'content.required' => "Il faut impérativement un contenu",
-            'image.max' => "L'image ne peut pas dépasser 20MB",
             'catégories_id.required' => "Ce n'est pas bien d'essayer de tricher",
             'catégories_id.integer' => "Ce n'est pas bien d'essayer de tricher",
             'catégories_id.exists' => "Ce n'est pas bien d'essayer de tricher",
+            'tags_id.required' => 'Il faut au minimum un tag',
+            'tags_id.exists' => "Ce n'est pas bien d'essayer de tricher",
+            'skills_id.required' => 'Il faut au minimum un skill',
+            'skills_id.exists' => "Ce n'est pas bien d'essayer de tricher",
             'image.required' => "Il faut impérativement une image",
             'image.max' => "L'image doit être au maximum de 20mB",
             'image.dimension' => "L'image doit être faire minimim 1000 pixels de large",
-            'tags_id.required' => 'Il faut au minimum un tag',
-            'tags_id.integer' => "Ce n'est pas bien d'essayer de tricher",
-            'tags_id.exists' => "Ce n'est pas bien d'essayer de tricher",
-            'skills_id.required' => 'Il faut au minimum un skill',
-            'skills_id.integer' => "Ce n'est pas bien d'essayer de tricher",
-            'skills_id.exists' => "Ce n'est pas bien d'essayer de tricher",
         ];
     }
 }

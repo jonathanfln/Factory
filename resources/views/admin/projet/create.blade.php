@@ -49,7 +49,7 @@
             <div class="form-group">
               <label for="categories_id"><h2>Catégorie</h2></label>
               @if($errors->has('categories_id'))
-                <div class="text-danger">{{$errors->first('clients_id')}}</div>
+                <div class="text-danger">{{$errors->first('categories_id')}}</div>
               @endif
               <select class="form-control" name="categories_id" id="categories_id">
                 @foreach($categories as $categorie)
@@ -87,13 +87,13 @@
         {{-- Tags projet --}}
         <div class="col-md-6">
           <label for="content"><h2>Tags</h2></label>
-          @if($errors->has('content'))
-            <div class="text-danger">{{$errors->first('content')}}</div>
+          @if($errors->has('tags_id'))
+            <div class="text-danger">{{$errors->first('tags_id')}}</div>
           @endif
           <div>
             @foreach($tags as $tag)
               <label class="form-check-label col-md-3">
-              <input type="checkbox" class="form-check-input" name="tags_id[]" id="" value="{{$tag->id}}">
+              <input type="checkbox" class="form-check-input" name="tags_id[]" value="{{$tag->id}}">
               {{$tag->name}}
               </label>
             @endforeach
@@ -104,13 +104,13 @@
         {{-- Skills projet --}}
         <div class="col-md-6">
           <label for="content"><h2>Skills</h2></label>
-          @if($errors->has('content'))
-            <div class="text-danger">{{$errors->first('content')}}</div>
+          @if($errors->has('skills_id'))
+            <div class="text-danger">{{$errors->first('skills_id')}}</div>
           @endif
           <div>
             @foreach($skills as $skill)
               <label class="form-check-label col-md-3">
-              <input type="checkbox" class="form-check-input" name="skills_id[]" id="" value="{{$skill->id}}">
+              <input type="checkbox" class="form-check-input" name="skills_id[]" value="{{$skill->id}}">
               {{$skill->name}}
               </label>
             @endforeach
@@ -141,6 +141,9 @@
           <div class="col-md-9">
             <div class="form-group">
               <label for="link"><h2>Lien</h2></label>
+              @if($errors->has('link'))
+                <div class="text-danger">{{$errors->first('link')}}</div>
+              @endif
               <input type="text" name="link" id="link" class="form-control" placeholder="Lien vers le site">
             </div>
           </div>
