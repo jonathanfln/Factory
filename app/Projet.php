@@ -26,6 +26,6 @@ class Projet extends Model
 
     public function skills()
     {
-        return $this->belongsToMany('App\Skill', 'skills_has_tags', 'projets_id', 'skills_id');
+        return $this->belongsToMany('App\Skill', 'projets_has_skills', 'projets_id', 'skills_id');
     }
 }

@@ -8,6 +8,6 @@ class Skill extends Model
 {
     public function skills()
     {
-        return $this->belongsToMany('App\Projet', 'skills_has_tags', 'skills_id', 'projets_id');
+        return $this->belongsToMany('App\Projet', 'projets_has_skills', 'skills_id', 'projets_id');
     }
 }
